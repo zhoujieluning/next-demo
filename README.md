@@ -1,37 +1,45 @@
 # next-demo
 
-#### 介绍
-next.js demo
+## 安装
 
-#### 软件架构
-软件架构说明
+```
+create-next-app
+```
 
+## 目录结构
 
-#### 安装教程
+![image-20240323080346718](.\images\image-20240323080346718.png)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- /app: 主要工作目录，包含路由、组件以及应用逻辑
+- /app/lib: 工具函数
+- /app/ui: 组件
+- /public: 静态资源
+- /scripts
 
-#### 使用说明
+## 处理资源
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- 样式
+- 字体
+- 图片
+  - 使用next内置图片组件，里面做了下列优化处理
+    - 图片加载完后不会出现布局位移
+    - 响应式
+    - 图片懒加载
 
-#### 参与贡献
+## 路由
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+- next的路由是采用文件目录和路由对应的方式
 
+![](.\images\Snipaste_2024-03-23_09-20-08.png)
 
-#### 特技
+- page.tsx是约定好的命名
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+![](.\images\Snipaste_2024-03-23_09-44-55.png)
+
+- layout.tsx也是约定好的，当前路径下的所有页面都会被自动嵌入layout中
+
+![](.\images\Snipaste_2024-03-23_09-43-41.png)
+
+- 这样做的好处是，可以做到局部更新。当路由跳转的时候，只有页面组件更新，布局不会重新渲染
+- app/layout.tsx是根layout，在此修改的ui，会作用到应用中的所有页面
+
