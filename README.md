@@ -54,3 +54,25 @@ create-next-app
   - 适用于经常更新数据的页面
   - 缺点：要等到所有数据获取完，页面才会加载，如果数据获取慢，会导致页面loading
 
+## stream
+
+将页面拆分成更小的块，哪块的数据加载完了，哪块的页面就展示，而不是说等到所有数据传输完成，再展示页面。是提升用户体验的一种方式。next.js中有两种方式：
+
+- 页面维度
+  - 用loading.tsx
+    - 可以在里面写一个骨架屏
+- 组件维度
+  - 用Suspense
+
+## 函数式路由跳转
+
+- useSearchParams
+  - /dashboard/invoices?page=1&query=pending 
+  - {page: '1', query: 'pending'}
+
+- usePathname
+  - /dashboard/invoices
+- URLSearchParams
+  - 是Web API
+- useRouter
+  - 用于修改url
